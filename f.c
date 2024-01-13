@@ -49,15 +49,6 @@ double findintf1()
 		printf("%.2lf\t\t%.4lf\n", x, function_1(x));
 	}
 }
-//f1 график 
-double plotf1()
-{
-	double x;
-	printf("Введите значение 'x' для функции: ");
-	scanf("%lf", &x);
-	//graph
-}
-
 
 //f2 x
 double findxf2()
@@ -82,14 +73,6 @@ double findintf2()
 		printf("%.2lf\t\t%.4lf\n", x, function_2(x));
 	}
 }
-//f2 график 
-double plotf2()
-{
-	double x;
-	printf("Введите значение 'x' для функции: ");
-	scanf("%lf", &x);
-	//graph
-}
 
 void main()
 {
@@ -111,11 +94,6 @@ void main()
 	{
 		findintf1();
 	}
-	//построение графика для функции f1(x)
-	if (ch1 == 1 && ch2 == 3)
-	{
-		plotf1();
-	}
 	//нахождение значения функции f2(x) при заданном значении аргумента x
 	if (ch1 == 2 && ch2 == 1)
 	{
@@ -125,11 +103,6 @@ void main()
 	if (ch1 == 2 && ch2 == 2)
 	{
 		findintf2();
-	}
-	//построение графика для функции f2(x)
-	if (ch1 == 2 && ch2 == 3)
-	{
-		plotf2();
 	}
 	system("pause");
 }
