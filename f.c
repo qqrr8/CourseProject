@@ -34,7 +34,7 @@ double findxf1()
 	scanf("%lf", &x);
 	printf("Ответ: %.2lf\n", function_1(x));
 }
-//f1 x на интервале
+//f1 x на интервале, полуинтервале или отрезке
 double findintf1()
 {
 	double x, xn, xk, h;
@@ -46,7 +46,16 @@ double findintf1()
 	scanf("%lf", &h);
 	printf("x\t\tV(x)\n");
 	for (double x = xn; x <= xk; x += h) {
-		printf("%.2lf\t\t%.4lf\n", x, function_1(x));
+		printf("[%.2lf]\t\t%.4lf\n", x, function_1(x));
+	}
+	for (double x = xn + 1; x < xk; x += h) {
+		printf("(%.2lf)\t\t%.4lf\n", x, function_1(x));
+	}
+	for (double x = xn + 1; x <= xk; x += h) {
+		printf("(%.2lf]\t\t%.4lf\n", x, function_1(x));
+	}
+	for (double x = xn; x < xk; x += h) {
+		printf("[%.2lf)\t\t%.4lf\n", x, function_1(x));
 	}
 }
 
@@ -58,7 +67,7 @@ double findxf2()
 	scanf("%lf", &x);
 	printf("Ответ: %.2lf\n", function_2(x));
 }
-//f2 x на интервале
+//f2 x на интервале, полуинтервале или отрезке
 double findintf2()
 {
 	double x, xn, xk, h;
@@ -70,39 +79,58 @@ double findintf2()
 	scanf("%lf", &h);
 	printf("x\t\tV(x)\n");
 	for (double x = xn; x <= xk; x += h) {
-		printf("%.2lf\t\t%.4lf\n", x, function_2(x));
+		printf("[%.2lf]\t\t%.4lf\n", x, function_1(x));
+	}
+	for (double x = xn + 1; x < xk; x += h) {
+		printf("(%.2lf)\t\t%.4lf\n", x, function_1(x));
+	}
+	for (double x = xn + 1; x <= xk; x += h) {
+		printf("(%.2lf]\t\t%.4lf\n", x, function_1(x));
+	}
+	for (double x = xn; x < xk; x += h) {
+		printf("[%.2lf)\t\t%.4lf\n", x, function_1(x));
 	}
 }
 
 void main()
 {
-	double x, xn, xk, h;
 	int ch1, ch2;
 	setlocale(LC_ALL, "RUS");
 	printf("Программа для вычесления значения функции по заданному значению 'x'\n");
 	printf("1.Выполнить вычисления для функции f1(x)\n2.Выполнить вычисления для функции f2(x)\n");
 	scanf("%d", &ch1);
-	printf("1.Вычислить значение функции\n2.Найти значение функции на интервале\n");
+	printf("1.Вычислить значение функции\n2.Найти значение функции на интервале, полуинтервале или отрезке\n3.Построить график функции\n");
 	scanf("%d", &ch2);
 	//нахождение значения функции f1(x) при заданном значении аргумента x
 	if (ch1 == 1 && ch2 == 1)
 	{
 		findxf1();
 	}
-	//вычисление значения функции f1(x) на интервале при заданном значении аргумента x
+	//вычисление значения функции f1(x) на интервале, полуинтервале или отрезке при заданном значении аргумента x
 	if (ch1 == 1 && ch2 == 2)
 	{
 		findintf1();
+	}
+	//график f1(x)
+	if (ch1 == 1 && ch2 == 3)
+	{
+		plotf1();
 	}
 	//нахождение значения функции f2(x) при заданном значении аргумента x
 	if (ch1 == 2 && ch2 == 1)
 	{
 		findxf2();
 	}
-	//вычисление значения функции f2(x) на интервале при заданном значении аргумента x
+	//вычисление значения функции f2(x) на интервале, полуинтервале или отрезке при заданном значении аргумента x
 	if (ch1 == 2 && ch2 == 2)
 	{
 		findintf2();
 	}
+	//график f2(x)
+	if (ch1 == 2 && ch2 == 3)
+	{
+		plotf2();
+	}
+
 	system("pause");
 }
